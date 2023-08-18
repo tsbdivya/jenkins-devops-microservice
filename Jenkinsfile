@@ -20,9 +20,9 @@ pipeline {
 		stage('Build'){
 			steps{
 					sh 'mvn --version'
-					sh 'node --version'
+					sh 'docker version'
 					echo "Build"
-					echo "$PATH"
+					echo "PATH : $PATH"
 					echo "$env.BUILD_ID"
 					echo "$env.BUILD_TAG"
 			}
