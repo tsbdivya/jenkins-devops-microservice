@@ -10,11 +10,17 @@ pipeline {
 	// 			image 'node:13.8'
 	// 		}
 	// }
+
+	environment {
+		dockerHome = tool 'myDocker'
+		mavenHome = tool 'myMaven'
+		PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
+	}
 	stages{
 		stage('Build'){
 			steps{
-					// sh 'mvn --version'
-					// sh 'node --version'
+					sh 'mvn --version'
+					sh 'node --version'
 					echo "Build"
 					echo "$PATH"
 					echo "$env.BUILD_ID"
